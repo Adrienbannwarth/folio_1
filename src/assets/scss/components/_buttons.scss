@@ -1,0 +1,42 @@
+.btn__close {
+    position: fixed;
+    left: 30px;
+    top: 30px;
+    z-index: 1002;
+    width: 30px;
+    height: 30px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.btn__project {
+    width: 80px;
+    height: 80px;
+    border: solid 1px $color-black;
+    border-radius: 50%;
+
+    .point__content {
+        padding: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        transition: ease-in-out 0.2s;
+        &:hover {
+            cursor: pointer;
+            padding: 26px;
+            .point {
+                margin: 3px;
+            }
+        }
+    }
+
+    .point {
+        margin: 2px;
+        width: 2px;
+        height: 2px;
+        transition: ease-in-out 0.2s;
+        background-color: $color-black;
+    }
+}

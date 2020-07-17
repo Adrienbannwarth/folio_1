@@ -1,5 +1,6 @@
 ---
 title: My Second Article
+subtitle: my subtitle mgl
 image: https://source.unsplash.com/random/1
 abstract: |-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit.

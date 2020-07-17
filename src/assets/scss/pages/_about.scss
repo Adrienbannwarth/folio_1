@@ -1,0 +1,52 @@
+.about__title {
+    padding: 200px 0 30px 0;
+    font-size: 5vw;
+    -webkit-text-stroke: 1.5px $color-black;
+    text-stroke: 1.5px $color-black;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    color: transparent;
+}
+
+.about__desc {
+    font-size: 3vw;
+}
+
+.about__subtitle {
+    margin: 30px 0 10px 0;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.about__details {
+    font-size: 16px;
+    a,
+    span {
+        margin-right: 15px;
+    }
+
+    a {
+        border-bottom: solid 1px $color-black;
+    }
+}
+
+.about__link {
+    margin: 30px 0 10px 0;
+    font-size: 12px;
+    border-bottom: solid 1px $color-black;
+}
+
+.about__footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 100px 0 20px 0;
+    border-top: solid 1px $color-black;
+}
+
+.scrollbar {
+    position: fixed;
+    right: 30px;
+    margin: 30px 0;
+    width: 1px;
+    background-color: $color-black;
+}

@@ -1,19 +1,50 @@
 <template>
   <Layout>
-    <div class="container">
-      <h1>List articles</h1>
-      <div v-for="article in $page.articles.edges" :key="article.id" class="article d-flex">
+    <Header />
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
         <div
-          class="article__img"
-          :style="{ 'background-image': 'url(' + article.node.image + ')' }"
-        ></div>
-        <div class="article__body">
-          <g-link :to="article.node.path" class="article__link"></g-link>
-          <h1 class="article__title">{{article.node.title}}</h1>
-          <p class="article__abstract">{{article.node.abstract}}</p>
+          v-for="(article, index) in $page.articles.edges"
+          :key="article.id"
+          class="project__container swiper-slide"
+        >
+          <div class="project__content">
+            <div class="project__body">
+              <p class="project__index">
+                {{index + 1}}
+                <span class="project__index__total">/ {{$page.articles.edges.length}}</span>
+              </p>
+              <div class="project__title">
+                <div class="project__content__link">
+                  <g-link :to="article.node.path" class="project__link">{{article.node.title}}</g-link>
+                </div>
+                <div class="marquee">
+                  <div class="marquee__inner">
+                    <span>{{article.node.title}}</span>
+                    <span>{{article.node.title}}</span>
+                    <span>{{article.node.title}}</span>
+                    <span>{{article.node.title}}</span>
+                  </div>
+                </div>
+              </div>
+              <p class="project__subtitle">{{article.node.subtitle}}</p>
+            </div>
+            <div
+              class="project__img"
+              :style="{ 'background-image': 'url(' + article.node.image + ')' }"
+            ></div>
+          </div>
         </div>
       </div>
+      <div class="scroll__content">
+        <span class="scroll__text">Scroll</span>
+        <span class="scroll__subtitle">Down</span>
+      </div>
+      <!-- If we need navigation buttons -->
+      <!-- <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>-->
     </div>
+    <Footer />
   </Layout>
 </template>
 <page-query>
@@ -23,6 +54,7 @@ query {
       node {
         title
         abstract
+        subtitle
         image
         path
       }
@@ -31,52 +63,99 @@ query {
 }
 </page-query>
 <script>
+// import Swiper JS
+import Swiper, { Navigation, Pagination, Mousewheel } from "swiper";
+Swiper.use([Navigation, Pagination, Mousewheel]);
+// import Swiper styles
+import "swiper/swiper-bundle.css";
+
+import { TweenMax, Back, gsap, Expo } from "gsap";
+
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 export default {
+  components: {
+    Header,
+    Footer
+  },
   metaInfo: {
     title: "My blog"
-  }
+  },
+  data() {
+    return {
+
+    };
+  },
+
+  mounted() {
+    var mySwiper = new Swiper(".swiper-container", {
+      direction: "horizontal",
+      // loop: true,
+      mousewheel: true,
+      speed: 700,
+      pagination: {
+        el: ".swiper-pagination"
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      scrollbar: {
+        el: ".swiper-scrollbar"
+      }
+    });
+    TweenMax.from(".project__content__link", 1, {
+      y: 30,
+      opacity: 0,
+      delay: 0.1,
+      ease: Back.easeInOut
+    });
+    TweenMax.from(
+      ".project__subtitle",
+      1,
+      {
+        y: 30,
+        opacity: 0,
+        delay: 0.2,
+        ease: Back.easeInOut
+      },
+      "-=2"
+    );
+    // TweenMax.from(
+    //   ".project__img",
+    //   1,
+    //   {
+    //     y: 30,
+    //     scale: 0.9,
+    //     delay: 0.2,
+    //     ease: Back.easeInOut
+    //   },
+    //   "-=2"
+    // );
+
+    mySwiper.on("slideChange", function() {
+      console.log("CHANGED");
+      TweenMax.from(".project__content__link", 1, {
+        y: 30,
+        opacity: 0,
+        delay: 0.1,
+        ease: Back.easeInOut
+      });
+      TweenMax.from(
+        ".project__subtitle",
+        1,
+        {
+          y: 30,
+          opacity: 0,
+          delay: 0.2,
+          ease: Back.easeInOut
+        },
+        "-=2"
+      );
+    });
+  },
+
+  methods: {}
 };
 </script>
-<style>
-.article {
-  display: flex;
-  align-items: center;
-  box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  position: relative;
-  margin-top: 50px;
-  background-color: #fff;
-}
-@media screen and (max-width: 992px) {
-  .article {
-    display: block;
-  }
-}
-.article__title {
-  margin-top: 0;
-}
-.article__body {
-  padding: 15px 30px;
-}
-.article__link {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-.article__img {
-  width: 250px;
-  height: 140px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  margin-right: 15px;
-}
-@media screen and (max-width: 992px) {
-  .article__img {
-    width: 100%;
-    height: 180px;
-  }
-}
-</style>

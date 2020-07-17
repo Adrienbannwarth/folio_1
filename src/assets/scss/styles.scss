@@ -1,0 +1,21 @@
+// UTILS
+@import '../scss/utils/variables';
+@import '../scss/utils/mixins';
+
+// LAYOUT
+@import '../scss/layout/global';
+@import '../scss/layout/footer';
+@import '../scss/layout/header';
+@import '../scss/layout/navigation';
+
+// BASE
+@import '../scss/base/animations';
+@import '../scss/base/typography';
+
+// PAGES
+@import '../scss/pages/home';
+@import '../scss/pages/about';
+
+// COMPONENTS
+@import '../scss/components/slider';
+@import '../scss/components/buttons';

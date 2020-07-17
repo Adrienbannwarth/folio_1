@@ -1,0 +1,69 @@
+html,
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    background-color: $color-main;
+    font-family: $font-primary;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.container {
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+
+.layout {
+    height: 100vh;
+}
+
+h1,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+// .scroll__content {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     position: absolute;
+//     z-index: 30;
+//     top: 85%;
+//     left: 50%;
+//     width: 80px;
+//     height: 80px;
+//     transform: translate(-50%, -50%);
+//     border: solid 1px $color-black;
+//     border-radius: 50%;
+
+//     &:hover {
+//         .scroll__text {
+//             content: 'ICI';
+//             transform: translateY(-50%);
+//             opacity: 0;
+//         }
+//         .scroll__subtitle {
+//             content: 'ICI';
+//             transform: translateY(0px);
+//             opacity: 1;
+//         }
+//     }
+//     .scroll__text {
+//         transition: 0.4s;
+//         font-size: 12px;
+//     }
+//     .scroll__subtitle {
+//         position: absolute;
+//         transition: 0.4s;
+//         transform: translateY(50%);
+//         font-size: 12px;
+//         opacity: 0;
+//     }
+// }

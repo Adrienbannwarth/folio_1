@@ -1,8 +1,9 @@
 ---
-title: My First Articleeee
-subtitle: my subtitle mgl
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+title: My third Article
+subtitle: my subtitle
 image: https://source.unsplash.com/random/1
+abstract: |-
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 author: Mario Rossi
 date: 2020-01-07T17:43:37.669Z
 ---
