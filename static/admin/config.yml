@@ -19,8 +19,8 @@ collections:
           - {label: "Author", name: "author", widget: "string"}
           - {label: "Date", name: "date", widget: "datetime"}
           - {label: "Body", name: "body", widget: "markdown"}
-      - label: "about"
-        name: "about"
+      - label: "pages"
+        name: "pages"
         files:
           - label: "About Page"
             name: "about"

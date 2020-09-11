@@ -4,7 +4,14 @@
     <!-- <div v-bind:style="{ ['height']: 'calc(' + scrollbar() + '% - 150px)' }" class="scrollbar"></div> -->
     <div id="top" class="container">
       <h1 class="about__title">About</h1>
-      <p class="about__desc">{{$page.about.description}}</p>
+      <p class="about__desc">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad reprehenderit unde doloremque, sed laudantium dolorem ullam.
+        Explicabo voluptatibus nesciunt harum architecto nostrum beatae, dignissimos unde corporis exercitationem perferendis asperiores sed!
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad reprehenderit unde doloremque, sed laudantium dolorem ullam.
+        Explicabo voluptatibus nesciunt harum architecto nostrum beatae, dignissimos unde corporis exercitationem perferendis asperiores sed!
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad reprehenderit unde doloremque, sed laudantium dolorem ullam.
+        Explicabo voluptatibus nesciunt harum architecto nostrum beatae, dignissimos unde corporis exercitationem perferendis asperiores sed!
+      </p>
 
       <p class="about__subtitle">What i usually do</p>
       <p class="about__details">
@@ -26,22 +33,12 @@
     </div>
   </Layout>
 </template>
-<page-query>
-query {
-  about: allAbout {
-      description
-  }
-}
-</page-query>
 <script>
 import { TweenMax, Back, gsap, Expo } from "gsap";
 export default {
-  metaInfo: {
-    title: "About us"
-  },
   data() {
     return {
-      scrolled: 100
+      scrolled: 100,
     };
   },
   methods: {
@@ -53,11 +50,11 @@ export default {
         document.documentElement.clientHeight;
       this.scrolled = (winScroll / height) * 100;
       return this.scrolled;
-    }
+    },
   },
   mounted() {
     window.addEventListener("scroll", this.scrollbar);
     console.log(this.scrollbar);
-  }
+  },
 };
 </script>
