@@ -14,7 +14,7 @@
     "gridsome-plugin-sass-resources-loader": "0.0.3",
     "gsap": "^3.4.0",
     "swiper": "^6.0.3",
-    "three": "^0.118.3",
+    "three": "^0.125.0",
     "vue-awesome-swiper": "^4.1.1",
     "webpack-glsl-loader": "^1.0.1"
   },
